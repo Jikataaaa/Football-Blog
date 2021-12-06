@@ -1,0 +1,22 @@
+.post{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border: 2px solid black;
+    border-radius: 4px;
+    box-shadow: black 0px 0px 7px 0px;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    height: 68vh;
+
+}
+.heading{
+    text-align: center;
+    margin: 20px 0px 0px 0px;
+
+}
+.description{
+    padding-left: 30px;
+}
