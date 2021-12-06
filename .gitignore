@@ -31,3 +31,21 @@ build/
 
 ### VS Code ###
 .vscode/
+/.gitignore
+/src/main/resources/application.properties
+/src/main/java/springadvanced/exam/model/BaseEntity.java
+/src/main/java/springadvanced/exam/ExamApplication.java
+/src/test/java/springadvanced/exam/ExamApplicationTests.java
+/src/main/resources/templates/home.html
+/src/main/resources/templates/login.html
+/src/main/resources/static/css/loginStyles.css
+/.mvn/wrapper/maven-wrapper.jar
+/.mvn/wrapper/maven-wrapper.properties
+/.mvn/wrapper/MavenWrapperDownloader.java
+/mvnw
+/mvnw.cmd
+/src/main/resources/static/css/mystyle.css
+/pom.xml
+/src/main/resources/templates/register.html
+/src/main/resources/static/css/registerStyles.css
+/src/main/java/springadvanced/exam/model/entities/User.java
