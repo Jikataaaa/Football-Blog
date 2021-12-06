@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/mystyle.css}" />
+    <link rel="stylesheet" th:href="@{/css/homeStyles.css}" />
+
+</head>
+<body>
+<header th:replace="fragments/commons::nav">
+</header>
+<main>
+    <article class="post">
+        <h2 class="heading">Lorem ipsum dolor sit amet.</h2>
+        <p class="description">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus
+            optio officia nemo molestias dicta ipsa id perferendis neque dolor,
+            explicabo asperiores voluptatibus distinctio deleniti quia voluptatum
+            delectus illum minus nostrum unde ratione amet atque similique! Aut
+            sit veniam voluptatibus ea aspernatur, unde enim ab quae repellendus
+            esse atque, delectus tempore?
+        </p>
+    </article>
+</main>
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>

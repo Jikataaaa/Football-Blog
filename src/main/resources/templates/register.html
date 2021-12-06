@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/registerStyles.css}"/>
+    <link rel="stylesheet" th:href="@{/css/mystyle.css}"/>
+
+</head>
+<body>
+<header th:replace="fragments/commons::nav">
+
+</header>
+<main>
+    <form action="">
+        <div class="inputs-wrapper">
+            <div class="label-wrapper">
+                <label >Username:</label>
+                <input
+                        class="input-text"
+                        type="text"
+                        name="username"
+                        required
+                />
+            </div>
+
+            <div class="label-wrapper">
+                <label>Password:</label>
+                <input
+                        class="input-text"
+                        type="password"
+                        name="password"
+                        required
+                />
+            </div>
+
+            <div class="label-wrapper">
+                <label>Repeat Password:</label>
+                <input
+                        class="input-text"
+                        type="password"
+                        name="repeatPass"
+                        required
+                />
+            </div>
+            <div><input class="button" type="submit" value="Register" /></div>
+        </div>
+    </form>
+</main>
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>
