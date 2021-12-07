@@ -1,20 +1,18 @@
-package springadvanced.exam.model.service;
+package springadvanced.exam.model.entities;
 
-public class UserServiceModel {
+import springadvanced.exam.model.BaseEntity;
 
-    private Long id;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "users")
+public class User extends BaseEntity {
+
     private String username;
     private String password;
 
-    public UserServiceModel() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public User() {
     }
 
     public String getUsername() {
@@ -33,3 +31,4 @@ public class UserServiceModel {
         this.password = password;
     }
 }
+

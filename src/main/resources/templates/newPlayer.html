@@ -12,20 +12,21 @@
 <header th:replace="fragments/commons::nav">
 </header>
 <main>
-    <form action="">
+    <form th:action="@{player-add}" method="POST" th:object="${playerAddBindingModel}">
         <div class="inputs-wrapper">
             <div class="label-wrapper">
                 <label >Player name:</label
                 ><input
+                    th:field="*{name}"
                     class="input-text"
                     name="heading"
-                    required
                     type="text"
             />
             </div>
             <div class="label-wrapper">
                 <label >Player description:</label>
                 <textarea
+                        th:field="*{description}"
                         name="description"
                         cols="45"
                         rows="15"
@@ -35,15 +36,15 @@
             <div class="label-wrapper">
                 <label>Type:</label>
                 <select
+                        th:field="*{position}"
                         required
                         class="input-text"
                         name="type"
                         id="types"
                 >
-                    <option value="midfielder">Midfielder</option>
-                    <option value="defender">Defender</option>
-                    <option value="goalkeeper">Goalkeeper</option>
-                    <option value="striker">Striker</option>
+                    <option value="" selected>TYPE</option>
+                    <option th:each="t : ${T(springadvanced.exam.model.enums.PlayerPositions)}" th:value="${t}" th:text="${t}">Player</option>
+
                 </select>
             </div>
 
