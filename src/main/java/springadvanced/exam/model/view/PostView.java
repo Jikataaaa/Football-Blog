@@ -1,15 +1,13 @@
-package springadvanced.exam.model.service;
+package springadvanced.exam.model.view;
 
-import springadvanced.exam.model.entities.User;
-
-public class PostServiceModel {
-
+public class PostView {
     private String heading;
     private String description;
     private String kind;
     private String author;
 
-    public PostServiceModel() {
+
+    public PostView() {
     }
 
     public String getHeading() {
@@ -35,7 +33,6 @@ public class PostServiceModel {
     public void setKind(String kind) {
         this.kind = kind;
     }
-
     public String getAuthor() {
         return author;
     }

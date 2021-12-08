@@ -5,6 +5,7 @@ import springadvanced.exam.model.enums.PlayerPositions;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -15,6 +16,7 @@ public class Player extends BaseEntity {
     private String name;
     private String description;
     private PlayerPositions position;
+    private User author;
 
     public Player() {
     }
@@ -41,5 +43,13 @@ public class Player extends BaseEntity {
 
     public void setPosition(PlayerPositions position) {
         this.position = position;
+    }
+    @ManyToOne
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }

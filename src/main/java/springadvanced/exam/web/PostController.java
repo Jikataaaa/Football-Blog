@@ -1,10 +1,13 @@
 package springadvanced.exam.web;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import springadvanced.exam.model.binding.PostAddBindingModel;
 import springadvanced.exam.model.service.PostServiceModel;
@@ -40,14 +43,21 @@ public class PostController {
         }
 
         PostServiceModel postServiceModel = mapper.map(postAddBindingModel, PostServiceModel.class);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        authentication.getPrincipal();
+        postServiceModel.setAuthor(authentication.getPrincipal().toString());
         service.addPost(postServiceModel);
 
-        //TODO redirect to page where posts will be visible
 
-
-        return "jj";
+        return "redirect:/posts-all";
     }
 
+    @GetMapping("/posts-all")
+    public ModelAndView posts(){
+        ModelAndView mav = new ModelAndView("posts");
+        mav.addObject("posts", service.loadAllPosts());
+        return mav;
+    }
 
 
 }

@@ -20,3 +20,8 @@
 .description{
     padding-left: 30px;
 }
+.author{
+    align-self: flex-end;
+    font-weight: bold;
+    margin-right: 5px;
+}
