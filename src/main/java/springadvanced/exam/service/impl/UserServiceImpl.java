@@ -7,6 +7,8 @@ import springadvanced.exam.model.service.UserServiceModel;
 import springadvanced.exam.repository.UserRepository;
 import springadvanced.exam.service.UserService;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -17,6 +19,8 @@ public class UserServiceImpl implements UserService {
         this.modelMapper = modelMapper;
         this.repository = repository;
     }
+
+
 
 
     @Override
