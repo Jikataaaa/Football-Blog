@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/css/mystyle.css}">
-    <link rel="stylesheet" th:href="@{/ccs/newPlayerStyles.css}" />
+    <link rel="stylesheet" th:href="@{/css/newPlayerStyles.css}" />
 </head>
 <body>
 <header th:replace="fragments/commons::nav">
@@ -43,7 +43,7 @@
                         id="types"
                 >
                     <option value="" selected>TYPE</option>
-                    <option th:each="t : ${T(springadvanced.exam.model.enums.PlayerPositions)}" th:value="${t}" th:text="${t}">Player</option>
+                    <option th:each="t : ${T(springadvanced.exam.model.enums.PlayerPositions).values()}" th:value="${t}" th:text="${t}">Player</option>
 
                 </select>
             </div>

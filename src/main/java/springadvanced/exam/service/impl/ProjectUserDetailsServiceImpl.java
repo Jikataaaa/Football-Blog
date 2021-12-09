@@ -1,6 +1,7 @@
 package springadvanced.exam.service.impl;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -12,12 +13,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-public class ProectUserDetailsServiceImpl implements UserDetailsService {
+public class ProjectUserDetailsServiceImpl implements UserDetailsService {
 
     private final UserRepository repository;
 
 
-    public ProectUserDetailsServiceImpl(UserRepository repository) {
+    public ProjectUserDetailsServiceImpl(UserRepository repository) {
 
         this.repository = repository;
     }
@@ -28,6 +29,7 @@ public class ProectUserDetailsServiceImpl implements UserDetailsService {
 
         User user = repository.findByUsername(username).orElseThrow();
         Set<GrantedAuthority> authorities = new HashSet<>();
+        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 
 
         return new org.springframework.security.core.userdetails.User(

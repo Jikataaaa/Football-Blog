@@ -14,11 +14,12 @@
 
 </header>
 <main>
-    <form action="">
+    <form th:action="@{/user/register}" th:method="POST" th:object="${userRegisterBindingModel}">
         <div class="inputs-wrapper">
             <div class="label-wrapper">
                 <label >Username:</label>
                 <input
+                        th:field="*{username}"
                         class="input-text"
                         type="text"
                         name="username"
@@ -29,6 +30,7 @@
             <div class="label-wrapper">
                 <label>Password:</label>
                 <input
+                        th:field="*{password}"
                         class="input-text"
                         type="password"
                         name="password"
@@ -39,6 +41,7 @@
             <div class="label-wrapper">
                 <label>Repeat Password:</label>
                 <input
+                        th:field="*{repeatPass}"
                         class="input-text"
                         type="password"
                         name="repeatPass"

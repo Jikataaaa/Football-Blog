@@ -29,6 +29,10 @@ input{
     border-radius: 5px;
     height: 20px;
 }
+.error-message{
+    font-size: 18px;
+    color: rgb(168, 0, 0);
+}
 .button{
     background-color: rgba(224,192,169,255);
     border: 1px solid black;

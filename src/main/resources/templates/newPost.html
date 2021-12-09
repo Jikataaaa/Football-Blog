@@ -12,11 +12,12 @@
 <header th:replace="fragments/commons::nav">
 </header>
 <main>
-    <form action="">
+    <form th:action="@{/post-add}" th:method="POST" th:object="${postAddBindingModel}">
         <div class="inputs-wrapper">
             <div class="label-wrapper">
                 <label >Heading:</label
                 ><input
+                    th:field="*{heading}"
                     class="input-text"
                     name="heading"
                     required
@@ -26,6 +27,7 @@
             <div class="label-wrapper">
                 <label >Description:</label>
                 <textarea
+                        th:field="*{description}"
                         name="description"
                         cols="45"
                         rows="15"
@@ -35,6 +37,7 @@
             <div class="label-wrapper">
                 <label >Type:</label>
                 <select
+                        th:field="*{kind}"
                         required
                         class="input-text"
                         name="type"

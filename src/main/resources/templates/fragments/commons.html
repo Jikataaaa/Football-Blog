@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,11 +15,17 @@
     <nav>
         <ul class="nav-list">
             <li><a th:href="@{/}">Home</a></li>
-            <li><a th:href="@{/player-add}">Add player</a></li>
-            <li><a th:href="@{post-add}">Add post</a></li>
-            <li><a th:href="@{/user/logout}">Logout</a></li>
-            <li><a th:href="@{/user/login}">Login </a></li>
-            <li><a th:href="@{/user/register}">Register</a></li>
+            <th:block sec:authorize="!isAuthenticated()">
+                <li sec:authorize="!isAuthenticated()"><a th:href="@{/user/login}">Login </a></li>
+                <li sec:authorize="!isAuthenticated()"><a th:href="@{/user/register}">Register</a></li>
+            </th:block>
+
+            <th:block sec:authorize="isAuthenticated()">
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/player-add}">Add player</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/post-add}">Add post</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/user/logout}">Logout</a></li>
+            </th:block>
+            <li><a th:href="@{/posts-all}">All posts</a></li>
         </ul>
     </nav>
 </header>

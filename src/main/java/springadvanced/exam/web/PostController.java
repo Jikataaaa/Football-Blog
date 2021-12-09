@@ -6,6 +6,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -43,9 +44,9 @@ public class PostController {
         }
 
         PostServiceModel postServiceModel = mapper.map(postAddBindingModel, PostServiceModel.class);
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        authentication.getPrincipal();
-        postServiceModel.setAuthor(authentication.getPrincipal().toString());
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        authentication.getPrincipal();
+//        postServiceModel.setAuthor(authentication.getPrincipal().toString());
         service.addPost(postServiceModel);
 
 
@@ -59,5 +60,9 @@ public class PostController {
         return mav;
     }
 
+    @ModelAttribute
+    public PostAddBindingModel postAddBindingModel(){
+        return new PostAddBindingModel();
+    }
 
 }

@@ -29,9 +29,16 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostView> loadAllPosts() {
+
+
       return repository.findAll()
               .stream()
-              .map(p -> mapper.map(p, PostView.class))
+              .map(p -> {
+                  String name = p.getAuthor().getUsername();
+                  PostView postView = mapper.map(p, PostView.class);
+                  postView.setAuthor(name);
+                  return postView;
+              })
               .collect(Collectors.toList());
 
     }

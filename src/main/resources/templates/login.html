@@ -6,21 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/css/loginStyles.css}" />
-    <link rel="stylesheet" th:href="@{/static/css/mystyle.css}" />
+    <link rel="stylesheet" th:href="@{/css/mystyle.css}" />
 </head>
 <body>
 <header th:replace="fragments/commons::nav">
 
 </header>
 <main>
-    <form action="">
+    <form th:action="@{/user/login}" method="post">
         <fieldset>
             <div>
                 <label>Username:</label>
                 <input
                         class="input-text"
                         type="text"
-                        id="user"
+                        id="username"
                         name="username"
                         required
                 /><br />
@@ -28,7 +28,7 @@
                 <input
                         class="input-text"
                         type="password"
-                        id="pass"
+                        id="password"
                         name="password"
                         required
                 /><br />

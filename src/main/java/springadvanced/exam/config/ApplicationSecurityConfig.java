@@ -2,13 +2,16 @@ package springadvanced.exam.config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import springadvanced.exam.model.enums.UserRoles;
 
 @Configuration
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -16,7 +19,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserDetailsService userDetailsService;
     private final PasswordEncoder passwordEncoder;
 
-    public ApplicationSecurityConfig(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
+    public ApplicationSecurityConfig( UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
         this.userDetailsService = userDetailsService;
         this.passwordEncoder = passwordEncoder;
     }
@@ -28,7 +31,10 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 // with this line we allow access to all static resources
                         requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().
                 // the next line allows access to the home page, login page and registration for everyone
-                        antMatchers("/", "/user/login", "/user/register").permitAll().
+                        antMatchers("/", "/user/login", "/user/register", "/player-add", "/post-add", "/posts-all").permitAll().
+
+                antMatchers("/statistics").hasRole(UserRoles.ADMIN.name()).
+
                 // next we forbid all other pages for unauthenticated users.
                         antMatchers("/**").authenticated().
                 and().
@@ -45,7 +51,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 // The place where we should land in case that the login is successful
                         defaultSuccessUrl("/").
                 // the place where I should land if the login is NOT successful
-                       // failureForwardUrl("/users/login-error").
+                        failureUrl("/users/login-error").
                 and().
                 logout().
                 // This is the URL which spring will implement for me and will log the user out.

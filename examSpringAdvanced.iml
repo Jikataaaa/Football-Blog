@@ -18,7 +18,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="entityManagerFactory" />
+          <factory-entry name="entityManagerFactory" value="0335859f-0015-435e-a1f5-eade62b082fb" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
@@ -61,7 +61,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.3.13" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:5.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.5.3" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.6.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:5.3.13" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.13" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.13" level="project" />
@@ -137,5 +136,6 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.springframework.boot:spring-boot-devtools:2.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.6.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:4.2.5.RELEASE" level="project" />
   </component>
 </module>
