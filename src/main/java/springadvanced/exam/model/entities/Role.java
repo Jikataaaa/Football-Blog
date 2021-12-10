@@ -4,6 +4,7 @@ import springadvanced.exam.model.BaseEntity;
 import springadvanced.exam.model.enums.UserRoles;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
@@ -16,7 +17,7 @@ public class Role extends BaseEntity {
     public Role() {
     }
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     public UserRoles getRole() {
         return role;
     }

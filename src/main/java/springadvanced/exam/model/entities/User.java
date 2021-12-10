@@ -18,8 +18,7 @@ public class User extends BaseEntity {
 
     public User() {
     }
-    @Column(unique = true)
-    @Size(min = 3)
+
     public String getUsername() {
         return username;
     }
@@ -27,7 +26,7 @@ public class User extends BaseEntity {
     public void setUsername(String username) {
         this.username = username;
     }
-    @Size(min = 3)
+
     public String getPassword() {
         return password;
     }
