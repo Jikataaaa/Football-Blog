@@ -14,7 +14,7 @@
 
 </header>
 <main>
-    <form th:action="@{/user/register}" th:method="POST" th:object="${userRegisterBindingModel}">
+    <form th:action="@{/user/register}" method="POST" th:object="${userRegisterBindingModel}">
         <div class="inputs-wrapper">
             <div class="label-wrapper">
                 <label >Username:</label>
@@ -23,8 +23,13 @@
                         class="input-text"
                         type="text"
                         name="username"
-                        required
+                        th:errorclass="is-invalid"
+
                 />
+                <small
+                       class="invalid-feedback">
+                    Username length must be more than 3 characters.
+                </small>
             </div>
 
             <div class="label-wrapper">
@@ -34,8 +39,12 @@
                         class="input-text"
                         type="password"
                         name="password"
-                        required
+                        th:errorclass="is-invalid"
                 />
+                <small
+                        class="invalid-feedback">
+                    Password length must be more than 3 characters.
+                </small>
             </div>
 
             <div class="label-wrapper">
@@ -45,8 +54,12 @@
                         class="input-text"
                         type="password"
                         name="repeatPass"
-                        required
+                        th:errorclass="is-invalid"
                 />
+                <small
+                        class="invalid-feedback">
+                    Password length must be more than 3 characters.
+                </small>
             </div>
             <div><input class="button" type="submit" value="Register" /></div>
         </div>

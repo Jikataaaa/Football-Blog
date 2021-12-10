@@ -3,11 +3,10 @@ package springadvanced.exam.model.entities;
 import springadvanced.exam.model.BaseEntity;
 import springadvanced.exam.model.enums.UserRoles;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -15,7 +14,7 @@ public class User extends BaseEntity {
 
     private String username;
     private String password;
-    private UserRoles role;
+    private Set<Role> role = new HashSet<>();
 
     public User() {
     }
@@ -37,12 +36,13 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
-    @Enumerated
-    public UserRoles getRole() {
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    public Set<Role> getRoles() {
         return role;
     }
 
-    public void setRole(UserRoles role) {
+    public void setRoles(Set<Role> role) {
         this.role = role;
     }
 }

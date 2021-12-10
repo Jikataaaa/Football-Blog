@@ -19,7 +19,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserDetailsService userDetailsService;
     private final PasswordEncoder passwordEncoder;
 
-    public ApplicationSecurityConfig( UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
+    public ApplicationSecurityConfig(@Qualifier("projectUserDetailsServiceImpl") UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
         this.userDetailsService = userDetailsService;
         this.passwordEncoder = passwordEncoder;
     }
@@ -31,8 +31,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 // with this line we allow access to all static resources
                         requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().
                 // the next line allows access to the home page, login page and registration for everyone
-                        antMatchers("/", "/user/login", "/user/register", "/player-add", "/post-add", "/posts-all").permitAll().
-
+                        antMatchers("/", "/user/login", "/user/register").permitAll().
+                //, "/player-add", "/post-add", "/posts-all"
                 antMatchers("/statistics").hasRole(UserRoles.ADMIN.name()).
 
                 // next we forbid all other pages for unauthenticated users.
