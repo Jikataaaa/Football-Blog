@@ -7,6 +7,9 @@ import springadvanced.exam.model.service.PlayerServiceModel;
 import springadvanced.exam.repository.PlayerRepository;
 import springadvanced.exam.service.PlayerService;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class PlayerServiceImpl implements PlayerService {
 
@@ -16,6 +19,17 @@ public class PlayerServiceImpl implements PlayerService {
     public PlayerServiceImpl(PlayerRepository repository, ModelMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
+    }
+
+    @Override
+    public List<PlayerServiceModel> loadAllPlayers() {
+        List<Player> players = repository.findAll();
+
+      return players
+              .stream()
+              .map(p -> mapper.map(p, PlayerServiceModel.class))
+              .collect(Collectors.toList());
+
     }
 
     @Override

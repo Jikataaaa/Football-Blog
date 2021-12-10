@@ -3,10 +3,7 @@ package springadvanced.exam.model.entities;
 import springadvanced.exam.model.BaseEntity;
 import springadvanced.exam.model.enums.PlayerPositions;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
@@ -37,6 +34,7 @@ public class Player extends BaseEntity {
         this.description = description;
     }
 
+    @Enumerated(EnumType.STRING)
     public PlayerPositions getPosition() {
         return position;
     }
