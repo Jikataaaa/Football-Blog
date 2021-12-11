@@ -34,9 +34,8 @@ public class PostServiceImpl implements PostService {
       return repository.findAll()
               .stream()
               .map(p -> {
-                  String name = p.getAuthor().getUsername();
+                //  String name = p.getAuthor().getUsername();
                   PostView postView = mapper.map(p, PostView.class);
-                  postView.setAuthor(name);
                   return postView;
               })
               .collect(Collectors.toList());

@@ -13,12 +13,12 @@
 <header th:replace="fragments/commons::nav">
 </header>
 <main>
-    <article class="post">
-        <h2 class="heading">Welcome to our website for football players.</h2>
-        <p class="description">
-            In this website you can find some information for football players and football teams.
-        </p>
-    </article>
+    <div class="container-fluid">
+        <h1>Welcome to Stats!</h1>
+        <h3>Total requests <th:block th:text="${stats.getTotalRequests()}"></th:block></h3>
+        <h3>Anonymous requests <th:block th:text="${stats.getAnonRequests()}"></th:block></h3>
+        <h3>Authorized requests <th:block th:text="${stats.getAuthRequests()}"></th:block></h3>
+    </div>
 </main>
 <footer th:replace="fragments/commons::footer"></footer>
 </body>

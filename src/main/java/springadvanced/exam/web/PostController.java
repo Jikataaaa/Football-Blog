@@ -28,12 +28,12 @@ public class PostController {
     }
 
 
-    @GetMapping("post-add")
+    @GetMapping("/post-add")
     public String add(){
         return "newPost";
     }
 
-    @PostMapping("post-add")
+    @PostMapping("/post-add")
     public String addConfirm(@Valid PostAddBindingModel postAddBindingModel,
                              BindingResult bindingResult, RedirectAttributes redirectAttributes){
 

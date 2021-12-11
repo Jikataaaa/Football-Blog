@@ -9,4 +9,5 @@ public interface PlayerService {
     List<PlayerServiceModel> loadAllPlayers();
 
     void addPlayer(PlayerServiceModel playerServiceModel);
+
 }

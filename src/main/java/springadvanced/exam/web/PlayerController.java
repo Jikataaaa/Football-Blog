@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import springadvanced.exam.model.binding.PlayerAddBindingModel;
 import springadvanced.exam.model.service.PlayerServiceModel;
@@ -24,12 +25,21 @@ public class PlayerController {
         this.modelMapper = modelMapper;
     }
 
-    @GetMapping("player-add")
+    @GetMapping("/player-add")
     public String add(){
         return "newPlayer";
     }
 
-    @PostMapping("player-add")
+    @GetMapping("/players-all")
+    public ModelAndView players(){
+        ModelAndView mav = new ModelAndView("players");
+        mav.addObject("players", playerService.loadAllPlayers());
+        return mav;
+    }
+
+
+
+    @PostMapping("/player-add")
     public String addConfirm(@Valid PlayerAddBindingModel playerAddBindingModel,
                              BindingResult bindingResult, RedirectAttributes redirectAttributes){
 
@@ -42,8 +52,8 @@ public class PlayerController {
         PlayerServiceModel playerServiceModel = modelMapper.map(playerAddBindingModel, PlayerServiceModel.class);
         playerService.addPlayer(playerServiceModel);
 
-        //TODO to create a page with visible players
-        return "hh";
+
+        return "redirect:/players-all";
     }
 
     @ModelAttribute
