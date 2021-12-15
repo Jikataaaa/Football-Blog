@@ -1,6 +1,7 @@
 package springadvanced.exam.model.binding;
 
 import javax.persistence.Column;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -15,6 +16,7 @@ public class UserRegisterBindingModel {
 
     @Size(min = 3)
     @NotNull
+    @NotBlank
     public String getUsername() {
         return username;
     }
@@ -24,6 +26,7 @@ public class UserRegisterBindingModel {
     }
     @Size(min = 3)
     @NotNull
+    @NotBlank
     public String getPassword() {
         return password;
     }
@@ -34,6 +37,7 @@ public class UserRegisterBindingModel {
 
     @Size(min = 3)
     @NotNull
+    @NotBlank
     public String getRepeatPass() {
         return repeatPass;
     }

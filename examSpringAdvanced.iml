@@ -47,10 +47,7 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-parameter-names:2.13.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.3.13" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.13" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.3.13" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.13" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.13" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-jpa:2.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-aop:2.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.7" level="project" />
@@ -125,6 +122,12 @@
     <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator-annotation-processor:6.0.2.Final" level="project" />
     <orderEntry type="library" name="Maven: javax.el:javax.el-api:3.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.web:javax.el:2.2.6" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.6.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.13" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.13" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.13" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.13" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.bind:jaxb-impl:2.1.2" level="project" />
     <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.1" level="project" />
     <orderEntry type="library" name="Maven: javax.xml.stream:stax-api:1.0-2" level="project" />
@@ -139,9 +142,7 @@
     <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-oauth2-client:5.6.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.6.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-oauth2-core:5.6.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.6.0" level="project" />
     <orderEntry type="library" name="Maven: com.nimbusds:oauth2-oidc-sdk:9.19" level="project" />
     <orderEntry type="library" name="Maven: com.github.stephenc.jcip:jcip-annotations:1.0-1" level="project" />
     <orderEntry type="library" name="Maven: com.nimbusds:content-type:2.1" level="project" />
@@ -149,7 +150,6 @@
     <orderEntry type="library" name="Maven: com.nimbusds:nimbus-jose-jwt:9.14" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:5.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-security:2.6.1" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.13" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:5.6.0" level="project" />
     <orderEntry type="library" name="Maven: com.cloudinary:cloudinary:1.0.14" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />

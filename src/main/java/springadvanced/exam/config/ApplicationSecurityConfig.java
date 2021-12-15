@@ -7,19 +7,19 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import springadvanced.exam.model.enums.UserRoles;
 
 @Configuration
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
+    private final PasswordEncoder passwordEncoder;
 
-    public ApplicationSecurityConfig(@Qualifier("projectUserDetailsServiceImpl") UserDetailsService userDetailsService) {
+    public ApplicationSecurityConfig(@Qualifier("projectUserDetailsServiceImpl") UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
         this.userDetailsService = userDetailsService;
 
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 // The place where we should land in case that the login is successful
                         defaultSuccessUrl("/").
                 and().
-                logout().
+                logout().permitAll().
                 // This is the URL which spring will implement for me and will log the user out.
                         logoutUrl("/user/logout").
                 // where to go after the logout.
@@ -64,6 +64,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.
-                userDetailsService(userDetailsService);
+                userDetailsService(userDetailsService)
+                .passwordEncoder(passwordEncoder);
     }
 }

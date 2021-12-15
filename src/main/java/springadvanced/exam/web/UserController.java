@@ -1,6 +1,7 @@
 package springadvanced.exam.web;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,12 +22,15 @@ public class UserController {
 
     private final ModelMapper modelMapper;
     private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
 
 
-    public UserController(ModelMapper modelMapper, UserService userService) {
+
+    public UserController(ModelMapper modelMapper, UserService userService, PasswordEncoder passwordEncoder) {
         this.modelMapper = modelMapper;
 
         this.userService = userService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/login")

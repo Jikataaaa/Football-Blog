@@ -25,7 +25,7 @@
                 <li><a th:href="@{/post-add}">Add post</a></li>
                 <li><a th:href="@{/user/logout}">Logout</a></li>
 <!--            </th:block>-->
-            <li><a th:href="@{/posts-all}">All posts</a></li>
+            <li sec:authorize="hasRole('ADMIN')" ><a th:href="@{/posts-all}">All posts</a></li>
             <li><a th:href="@{/players-all}">All players</a></li>
             <li><a th:href="@{/statistics}">All stats</a></li>
         </ul>

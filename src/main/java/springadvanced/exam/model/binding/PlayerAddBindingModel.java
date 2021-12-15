@@ -3,6 +3,9 @@ package springadvanced.exam.model.binding;
 
 import springadvanced.exam.model.enums.PlayerPositions;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class PlayerAddBindingModel {
 
     private String name;
@@ -11,7 +14,8 @@ public class PlayerAddBindingModel {
 
     public PlayerAddBindingModel() {
     }
-
+    @NotNull
+    @Size(min = 3)
     public String getName() {
         return name;
     }
@@ -20,6 +24,8 @@ public class PlayerAddBindingModel {
         this.name = name;
     }
 
+    @NotNull
+    @Size(min = 5)
     public String getDescription() {
         return description;
     }
@@ -28,6 +34,7 @@ public class PlayerAddBindingModel {
         this.description = description;
     }
 
+    @NotNull
     public PlayerPositions getPosition() {
         return position;
     }

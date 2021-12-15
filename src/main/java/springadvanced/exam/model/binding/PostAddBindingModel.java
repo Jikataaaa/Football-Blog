@@ -1,5 +1,8 @@
 package springadvanced.exam.model.binding;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class PostAddBindingModel {
 
     private String heading;
@@ -10,7 +13,8 @@ public class PostAddBindingModel {
     public PostAddBindingModel() {
     }
 
-
+    @NotNull
+    @Size(min = 5)
     public String getHeading() {
         return heading;
     }
@@ -19,6 +23,8 @@ public class PostAddBindingModel {
         this.heading = heading;
     }
 
+    @NotNull
+    @Size(min = 5)
     public String getDescription() {
         return description;
     }
