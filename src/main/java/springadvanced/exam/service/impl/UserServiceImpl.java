@@ -8,6 +8,9 @@ import springadvanced.exam.model.service.UserServiceModel;
 import springadvanced.exam.repository.UserRepository;
 import springadvanced.exam.service.UserService;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -29,5 +32,22 @@ public class UserServiceImpl implements UserService {
         User user = modelMapper.map(userServiceModel, User.class);
         user.setPassword(encoder.encode(userServiceModel.getPassword()));
         repository.save(user);
+    }
+
+    @Override
+    public List<UserServiceModel> loadAllUsers(){
+
+        List<User> users = repository.findAll();
+       return users.stream()
+                .map(u -> modelMapper.map(u, UserServiceModel.class))
+                .collect(Collectors.toList());
+
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+
+        repository.deleteById(id);
+
     }
 }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/mystyle.css}" />
+    <link rel="stylesheet" th:href="@{/css/adminStyles.css}" />
+
+</head>
+<body>
+<header th:replace="fragments/commons::nav">
+</header>
+<main>
+    <main>
+        <p class="above-table-p" >Users:</p>
+        <table class="admin-table">
+            <tr th:each="u : ${users}" >
+                <td th:text="${u.username}" >Lorem, ipsum dolor.</td>
+                <td>
+                    <form th:action="@{/admin/{id}(id=${u.id})}" th:method="DELETE">
+                    <input class="delete-btn" type="submit"  value="Delete"/>
+                    </form>
+                </td>
+
+            </tr>
+
+        </table>
+    </main>
+</main>
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>

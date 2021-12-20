@@ -16,34 +16,26 @@
         <ul class="nav-list">
             <li><a th:href="@{/}">Home</a></li>
 <!--            <th:block sec:authorize="!isAuthenticated()">-->
-                <li><a th:href="@{/user/login}">Login </a></li>
-                <li><a th:href="@{/user/register}">Register</a></li>
+                <li sec:authorize="!isAuthenticated()"><a th:href="@{/user/login}">Login </a></li>
+                <li sec:authorize="!isAuthenticated()"><a th:href="@{/user/register}">Register</a></li>
 <!--            </th:block>-->
 
 <!--            <th:block sec:authorize="isAuthenticated()">-->
-                <li><a th:href="@{/player-add}">Add player</a></li>
-                <li><a th:href="@{/post-add}">Add post</a></li>
-                <li><a th:href="@{/user/logout}">Logout</a></li>
+                <li sec:authorize="isAuthenticated()" ><a th:href="@{/player-add}">Add player</a></li>
+                <li sec:authorize="isAuthenticated()" ><a th:href="@{/post-add}">Add post</a></li>
+                <li sec:authorize="isAuthenticated()"><form class="logout-form" th:action="@{/user/logout}" th:method="post">
+                    <input class="logout-btn" type="submit" value="Logout">
+                </form></li>
 <!--            </th:block>-->
-            <li sec:authorize="hasRole('ADMIN')" ><a th:href="@{/posts-all}">All posts</a></li>
+            <li><a th:href="@{/posts-all}">All posts</a></li>
             <li><a th:href="@{/players-all}">All players</a></li>
-            <li><a th:href="@{/statistics}">All stats</a></li>
+            <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/statistics}">All stats</a></li>
+            <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/admin}">Admin</a></li>
+
         </ul>
     </nav>
 </header>
-<main>
-    <article class="post">
-        <h2 class="heading">Lorem ipsum dolor sit amet.</h2>
-        <p class="description">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus
-            optio officia nemo molestias dicta ipsa id perferendis neque dolor,
-            explicabo asperiores voluptatibus distinctio deleniti quia voluptatum
-            delectus illum minus nostrum unde ratione amet atque similique! Aut
-            sit veniam voluptatibus ea aspernatur, unde enim ab quae repellendus
-            esse atque, delectus tempore?
-        </p>
-    </article>
-</main>
+
 <footer th:fragment="footer"><p>Designed and developed by Zhivko Radev</p></footer>
 </body>
 </html>
